@@ -12,7 +12,10 @@ const pool = new Pool({
 
 app.get('/health', async (req, res) => {
   await pool.query('SELECT 1');
-  res.json({ status: 'ok', database: 'connected' });
+  res.json({ 
+    status: 'ok', 
+    database: 'connected',
+    instance: process.env.INSTANCE_ID });
 });
 
 
